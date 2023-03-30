@@ -1,0 +1,19 @@
+.container {
+    display: flex;   
+    justify-content: space-between;
+    padding: 0px 50px;
+}
+
+.item {
+   display: flex;
+}
+
+.list {
+    display: flex;
+    list-style: none;
+
+}
+
+.listItem {
+    margin: 20px;
+}
