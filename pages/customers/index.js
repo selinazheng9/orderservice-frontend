@@ -1,4 +1,5 @@
 import styles from "../../styles/customers.module.css";
+import data from '../../data/data'
 import { useState, useEffect } from "react";
 import Spinner from "../../components/Spinner";
 
@@ -8,8 +9,7 @@ const Customers = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:8080/customers")
-      .then((res) => res.json())
+    data.customers()
       .then((data) => {
         setCustomers(data);
         setLoading(false);
@@ -32,8 +32,8 @@ const Customers = () => {
               </tr>
             </thead>
             <tbody>
-              {customers.map((c) => (
-                <tr>
+              {customers.map((c, i) => (
+                <tr key={i}>
                   <td data-label="Name">{c.name}</td>
                   <td data-label="Email">{c.email}</td>
                 </tr>
