@@ -8,12 +8,14 @@ const NavBar = () => {
     return (
         <>
         <div className={styles.container}>
-          <div className={styles.item}>LOGO</div>
+          <div className={styles.item}>
+          <Link href="/">LOGO</Link>
+            </div>
 
           <div className={styles.item}>
               <ul className={styles.list}>
                 <li className={styles.listItem}>
-                    <Link href="/customer">Customers</Link>
+                    <Link href="/customers">Customers</Link>
                 </li>
                 <li className={styles.listItem}>
                     Orders
