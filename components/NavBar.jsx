@@ -1,38 +1,37 @@
 import { useState } from "react";
-import styles from "../styles/NavBar.module.css"
+import styles from "../styles/NavBar.module.css";
 import Link from "next/link";
 
-
 const NavBar = () => {
-    
-    return (
-        <>
-        <div className={styles.container}>
-          <div className={styles.item}>
-          <Link href="/">LOGO</Link>
-            </div>
+  return (
+    <>
+      <header>
+        <Link className={styles.logo} href="/">logo</Link>
 
-          <div className={styles.item}>
-              <ul className={styles.list}>
-                <li className={styles.listItem}>
-                    <Link href="/customers">Customers</Link>
+        <input type="checkbox" id="menu-bar" className={styles.menubar}></input>
+        <label for="menu-bar">menu</label>
+
+        <nav className={styles.navbar}>
+          <ul>
+            <li>
+              <Link href="/">home</Link>
+            </li>
+            <li>
+              <Link href="/customers">customers +</Link>
+              <ul>
+                <li>
+                  <Link href="/customers/add">new customer</Link>
                 </li>
-                <li className={styles.listItem}>
-                    Orders
-                </li>
-                <li className={styles.listItem}>
-                    Trackings
-                </li>
-               
               </ul>
-          </div>
-
-          <div className={styles.item}>Login/Register</div>
-
-        </div>
-         
-        </>
-    )
-}
+            </li>
+            <li>
+              <Link href="/login">register/login</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </>
+  );
+};
 
 export default NavBar;
