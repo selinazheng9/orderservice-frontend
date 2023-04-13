@@ -1,4 +1,6 @@
-let host = process.env.NEXT_PUBLIC_BACKEND_HOST;
+//let host = process.env.NEXT_PUBLIC_BACKEND_HOST;
+
+let host = "http://localhost:8080";
 
 let findAllCustomers = () => {
  return fetch(host + '/customers')
