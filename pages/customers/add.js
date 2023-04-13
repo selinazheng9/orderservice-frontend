@@ -11,6 +11,10 @@ const Customer = () => {
         console.log(values);
         const response = await data.saveCustomer(values);
         console.log(response);
+        if(response != null){
+            reset();
+
+        }
 
     }
 
