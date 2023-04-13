@@ -6,9 +6,12 @@ import data from '../../data/data'
 const Customer = () => {
     const { register, handleSubmit, errors, reset } = useForm();
 
-    let save = (values) => {
+    let save = async (values) => {
 
         console.log(values);
+        const response = await data.saveCustomer(values);
+        console.log(response);
+
     }
 
     return(
@@ -18,17 +21,15 @@ const Customer = () => {
                 <form action="#" onSubmit={handleSubmit(save)}>
                     <div className={styles.main_user_info}>
                         <div className={styles.user_input_box}>
-                            <label htmlFor="fullName">Full Name</label>
+                            <label htmlFor="name">Full Name</label>
                             <input type="text"
-                                   id="fullName"
-                                   name="fullName"
-                                   ref={register({
-                                       required: {
-                                           value: true,
-                                           message: 'You must enter your name',
-                                       },
-                                   })}
+                                   id="name"
+                                   name="name"
+                                   {...register('name',
+                                       {required: true,
+                                               message: 'please enter a name' })}
                                    placeholder="Enter Full Name"/>
+
                         </div>
 
                         <div className={styles.user_input_box}>
@@ -36,6 +37,9 @@ const Customer = () => {
                             <input type="email"
                                    id="email"
                                    name="email"
+                                   {...register('email',
+                                       {required: true,
+                                           message: 'please enter an email address' })}
                                    placeholder="Enter Email"/>
                         </div>
 

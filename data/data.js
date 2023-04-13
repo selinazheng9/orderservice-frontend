@@ -5,17 +5,21 @@ let findAllCustomers = () => {
         .then(x => x.json()); 
 };
 
-let saveCustomer = (name, email) => {
+let saveCustomer = (customer) => {
     return fetch(host + "/customers", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            name: name,
-            email: email
+            name: customer.name,
+            email: customer.email
         })
-    }).then(response => response.json())
+    }).then(response =>
+    {
+        if (response.status == 200 || response.status == 201) return response.json();
+        return null;
+    })
         .then(id => id)
         .catch(error => {
             console.log(error);
