@@ -1,6 +1,6 @@
 //let host = process.env.NEXT_PUBLIC_BACKEND_HOST;
 
-let host = "http://localhost:8082";
+let host = "http://localhost:7634";
 
 let findAllOrders = () => {
     return fetch(host + "/orders").then(x => x.json())
