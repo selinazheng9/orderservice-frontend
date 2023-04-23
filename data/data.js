@@ -1,21 +1,23 @@
 //let host = process.env.NEXT_PUBLIC_BACKEND_HOST;
 
-let host = "http://localhost:8080";
+let host = "http://localhost:8082";
 
-let findAllCustomers = () => {
- return fetch(host + '/customers')
-        .then(x => x.json()); 
-};
+let findAllOrders = () => {
+    return fetch(host + "/orders").then(x => x.json())
+}
 
-let saveCustomer = (customer) => {
-    return fetch(host + "/customers", {
+let saveOrder = (order) => {
+    return fetch(host + "/orders", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            name: customer.name,
-            email: customer.email
+            customerId: order.customerId,
+            total: order.total,
+            shippingAddress: order.shippingAddress,
+            items: order.items,
+            payment: order.payment
         })
     }).then(response =>
     {
@@ -30,8 +32,8 @@ let saveCustomer = (customer) => {
 }
 
 let data = {
-    customers: findAllCustomers,
-    saveCustomer: saveCustomer
+    orders: findAllOrders,
+    saveOrder: saveOrder
 };
 
 export default data;

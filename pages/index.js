@@ -9,12 +9,14 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Demo</title>
-        <meta name="description" content="Demop" />
+        <title>OrderService</title>
+        <meta name="description" content="Demo" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
+      <body>
+      <div className={styles.box}>Welcome! Feel free to look around and place an order.</div>
+      </body>
       
     </>
   )
