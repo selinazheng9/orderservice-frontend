@@ -1,7 +1,3 @@
-//let host = process.env.NEXT_PUBLIC_BACKEND_HOST;
-
-let host = "orderservice-production-a216.up.railway.app\n";
-
 let findAllOrders = () => {
     return fetch(host + "/orders").then(x => x.json())
 }
