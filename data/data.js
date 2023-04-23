@@ -1,3 +1,4 @@
+let host = "https://orderservice-production-a216.up.railway.app/";
 let findAllOrders = () => {
     return fetch(host + "/orders").then(x => x.json())
 }
